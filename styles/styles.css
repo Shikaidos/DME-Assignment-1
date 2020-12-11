@@ -1,0 +1,15 @@
+
+
+/* Without setting height the slides will take up the height of the slide's content */
+ion-slides {
+    height: 100%;
+}
+
+.rect{
+      background-color: red;
+      width: 500px;
+      height: 500px;
+}
+
+
+
