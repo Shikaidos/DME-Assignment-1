@@ -1,83 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js" ></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
-    <link rel="stylesheet" href="/styles/styles.css"/>
-</head>
-<body class="half-bg">
-    <h1>Today</h1>
-    <h2>30 November</h2>
-    <ion-card class="progress-card">
-      <!--Benefit habits progress-->
-        <ion-card-header>
-          <ion-card-title>Benefit habits</ion-card-title>
-        </ion-card-header>
-        <ion-progress-bar color="primary" value="0.5"></ion-progress-bar>
-        <!--damaging habits progress-->
-        <ion-card-header>
-          <ion-card-title>Damaging habits</ion-card-title>
-        </ion-card-header>
-        <ion-progress-bar color="danger" value="0.5"></ion-progress-bar>
-      </ion-card>
-<ion-list>
-  <ion-item-sliding>
-    <ion-item>
-      <ion-label>Item</ion-label>
-    </ion-item>
-    <ion-item-options side="end">
-      <ion-item-option onClick="unread(item)">Unread</ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <style>
+      :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
+      }
+    </style>
+  </head>
+  <body class="half-bg">
+    <ion-app class="pad-all">
+      <ion-content>
+        <ion-grid>
+          <ion-row>
+            <ion-text class="txt-space">
+              <h1>Today</h1>
+              <h2>30 November</h2>
+            </ion-text>
+            
+          </ion-row>
+          <ion-card class="progress-card">
+            <!--Benefit habits progress-->
+            <ion-card-header>
+              <ion-card-title>Benefit habits</ion-card-title>
+            </ion-card-header>
+            <ion-card-content style="width: 100%;">
+              <ion-progress-bar
+                color="primary"
+                value="0.5"
+                class="benefit-prog-today"
+              ></ion-progress-bar>
+            </ion-card-content>
+            <!--damaging habits progress-->
+            <ion-card-header>
+              <ion-card-title>Damaging habits</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-progress-bar
+                color="danger"
+                value="0.5"
+                class="damage-prog-today"
+              ></ion-progress-bar>
+            </ion-card-content>
+          </ion-card>
 
-      <br>
-      <!--Bottom navbar-->
-      <ion-tabs>
-        <ion-tab tab="tab-schedule">
-          <ion-nav></ion-nav>
-        </ion-tab>
-      
-        <ion-tab tab="tab-speaker">
-          <ion-nav></ion-nav>
-        </ion-tab>
-      
-        <ion-tab tab="tab-map" component="page-map">
-          <ion-nav></ion-nav>
-        </ion-tab>
-      
-        <ion-tab tab="tab-about" component="page-about">
-          <ion-nav></ion-nav>
-        </ion-tab>
-      
-        <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="tab-today">
-            <ion-icon name="calendar"></ion-icon>
-            <ion-label>Today</ion-label>
-            <ion-badge>6</ion-badge>
-          </ion-tab-button>
-      
-          <ion-tab-button tab="tab-new-habit">
-            <ion-icon name="person-circle"></ion-icon>
-            <ion-label>New Habit</ion-label>
-          </ion-tab-button>
-      
-          <ion-tab-button tab="tab-stats">
-            <ion-icon name="map"></ion-icon>
-            <ion-label>Stats</ion-label>
-          </ion-tab-button>
-      
-          <ion-tab-button tab="tab-profile">
-            <ion-icon name="information-circle"></ion-icon>
-            <ion-label>Profile</ion-label>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs>
-      
-    <script src="/js/myapp.js"></script>  
-</body>
+          <ion-text color="secondary" class="txt-space">
+            <h1>Habits</h1>
+          </ion-text>
+          <ion-list>
+            <ion-item-sliding class="itemList">
+              <ion-item>
+                <ion-label>Item</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option onClick="unread(item)">Unread</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+
+            <ion-item-sliding>
+              <ion-item>
+                <ion-label>Item</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option onClick="unread(item)">Unread</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+        </ion-grid>
+
+        <!--Bottom navbar-->
+        <ion-tabs>
+          <ion-tab tab="tab-today">
+            <ion-nav></ion-nav>
+          </ion-tab>
+
+          <ion-tab tab="tab-new-habit">
+            <ion-nav></ion-nav>
+          </ion-tab>
+
+          <ion-tab tab="tab-stats" component="page-map">
+            <ion-nav></ion-nav>
+          </ion-tab>
+
+          <ion-tab tab="tab-profile" component="page-about">
+            <ion-nav></ion-nav>
+          </ion-tab>
+
+          <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="tab-today">
+              <ion-icon name="calendar"></ion-icon>
+              <ion-label>Today</ion-label>
+              <ion-badge>6</ion-badge>
+            </ion-tab-button>
+
+            <ion-tab-button tab="tab-new-habit">
+              <ion-icon name="person-circle"></ion-icon>
+              <ion-label>New Habit</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="tab-stats">
+              <ion-icon name="map"></ion-icon>
+              <ion-label>Stats</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="tab-profile">
+              <ion-icon name="information-circle"></ion-icon>
+              <ion-label>Profile</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+        </ion-tabs>
+      </ion-content>
+    </ion-app>
+    <script src="/js/myapp.js"></script>
+  </body>
 </html>

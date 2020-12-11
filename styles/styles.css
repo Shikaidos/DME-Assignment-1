@@ -11,5 +11,16 @@ ion-slides {
       height: 500px;
 }
 
+.itemList{
+    height: 105%;
+}
+
+.pad-all{
+    padding: 10px;
+}
+
+
+
+
 
 
