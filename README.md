@@ -1,4 +1,4 @@
-# IMGD-CMS
+# IMGD-DME-Assignment
 
 GitHub Link: https://github.com/Shikaidos/DME-Assignment-1.git
 No username or password
