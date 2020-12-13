@@ -13,7 +13,7 @@ const signUpBtn = document.querySelector("#signUp-btn");
     window.location.href = "home.html";
   } else if (user != "shikaidos" || passkey != "bigchungus") {
     errorFields();
-  } else if (user === "" || passkey === "") {
+  } else if (user == "" || passkey == "") {
     emptyFields();
   }
   console.log(userName + " " + passWord);
@@ -42,8 +42,17 @@ async function errorFields() {
 }
 //------------------------------------------------------------------------------------
 //Main menu redirect functions
+function homePage() {
+  window.location.replace("home.html");
+}
 function newHabitPage() {
   window.location.replace("newhabit.html");
+}
+function profilePage() {
+  window.location.replace("profile.html");
+}
+function statsPage() {
+  window.location.replace("stats-page.html");
 }
 //------------------------------------------------------------------------------------
 //Adding new habit
