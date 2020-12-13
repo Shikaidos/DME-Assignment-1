@@ -5,7 +5,7 @@ const passWord = document.querySelector("#userPW");
 const loginBtn = document.querySelector("#login-btn");
 const signUpBtn = document.querySelector("#signUp-btn");
 
-loginBtn.addEventListener("click", function () {
+/*loginBtn.addEventListener("click", function () {
   const user = userName.value;
   const passkey = passWord.value;
 
@@ -17,7 +17,7 @@ loginBtn.addEventListener("click", function () {
     emptyFields();
   }
   console.log(userName + " " + passWord);
-});
+});*/
 
 //popup for when there are empty fields on login
 async function emptyFields() {
@@ -41,6 +41,11 @@ async function errorFields() {
   await alert.present();
 }
 //------------------------------------------------------------------------------------
+//Main menu redirect functions
+function newHabitPage() {
+  window.location.replace("newhabit.html");
+}
+//------------------------------------------------------------------------------------
 //Adding new habit
 const habitName = document.querySelector("#habitName");
 const daysList = document.querySelector("#multiple");
@@ -53,24 +58,55 @@ var habitsArrList = [];
 //generates a unique ID for array items based on MS
 var uniqueID = new Date().getUTCMilliseconds();
 
-habitBtn.addEventListener("click", function(){
+//adds array into HTMl
+function freshArray() {
+  $("#habitsList").children().remove();
+  $("#habitsList").append(JSON.parse(localStorage.getItem("list")));
+  setItemStorage();
+  console.log(habitsArrList.length);
+}
+
+habitBtn.addEventListener("click", function () {
   const thisHabitName = habitName.value;
   const daysSelect = daysList.value;
   const timeSelect = timeLog.value;
 
-  if(thisHabitName.length == 0 || daysSelect.length == 0 || timeSelect.length == 0){
-    emptyFields();
+  /*async function addList(){
+    $("#list-append").append("<ion-item><ion-label>"+ thisHabitName +"</ion-label><ion-item>");
+    console.log("addlist");
+    return;
   }
-  else{
-    //creates new habit
-    //pushes item to array
-    habitsArrList.push(thisHabitName);
-    //add new list to home page
-    
-    //update html and array by deleting and adding agai
-  }
-})
+  
+  async function loadHome(){
+    await addList();
+    window.location.replace("home.html");
+  }*/
 
+  if (thisHabitName == "" || daysSelect == "" || timeSelect == "") {
+    emptyFields();
+  } else {
+    habitsArrList.push(
+      `<ion-item-sliding onclick="test()"><ion-item><ion-label> ${thisHabitName} </ion-label></ion-item><ion-item-options side='end'><ion-item-option class="delBtn" id = "${uniqueID}" color='danger'>Delete</ion-item-option></ion-item-options></ion-item-sliding>`
+    );
+    freshArray();
+  }
+});
+
+$(document).on("click", ".delBtn", function () {
+  console.log("test");
+  habitsArrList.splice(habitsArrList.indexOf($(this).attr("id")), 1);
+
+  freshArray();
+});
+
+//stores habit array list into user's local storage
+function setItemStorage(){
+  localStorage.setItem("list", JSON.stringify(habitsArrList));
+}
+
+function editList(){
+  console.log("test");
+}
 
 //push and pull list in array
 //userListArray.push(newItemName);

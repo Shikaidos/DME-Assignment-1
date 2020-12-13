@@ -11,15 +11,13 @@ ion-slides {
       height: 500px;
 }
 
-.itemList{
-    height: 105%;
+.progress-card{
+    margin-top: 25%;
 }
 
-.pad-all{
-    padding: 10px;
+.home-grid{
+    width: 100%;
 }
-
-
 
 
 
